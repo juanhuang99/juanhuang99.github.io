@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,6 +13,12 @@
 <meta name="theme-color" content="#222">
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -105,7 +111,7 @@
 <meta property="og:image" content="https://juanhuang99.github.io/blog/2018/06/27/css玄学之一二/1.jpg">
 <meta property="og:image" content="https://juanhuang99.github.io/blog/2018/06/27/css玄学之一二/1.jpg">
 <meta property="og:image" content="https://juanhuang99.github.io/blog/2018/06/27/css玄学之一二/1.jpg">
-<meta property="og:updated_time" content="2018-06-27T11:37:23.201Z">
+<meta property="og:updated_time" content="2018-07-17T03:31:10.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css玄学之一二">
 <meta name="twitter:description" content="css在我心中一直是玄学，因此一直希望遇见一本可以系统的介绍css规则。所以看到张鑫旭出了《css世界》，好不犹豫的买来读了。虽然这本书并没有如愿让我对css有系统的解惑，但是很多方面有了进一步认识。另外，张鑫旭大大真的是匠心，非常钦佩其十年如一日的深钻css世界，特别是他非常细致深入的不间断更新的博客。（个人不成熟的小感受是书中虽然有在按章节介绍内容，但是经常从a到b，导致读者主线丢失，感觉还是">
@@ -117,7 +123,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -212,12 +218,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            标签
+            分类
           </a>
         </li>
       
@@ -228,6 +234,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -332,6 +348,7 @@
 
       
         <p>css在我心中一直是玄学，因此一直希望遇见一本可以系统的介绍css规则。所以看到张鑫旭出了《css世界》，好不犹豫的买来读了。虽然这本书并没有如愿让我对css有系统的解惑，但是很多方面有了进一步认识。另外，张鑫旭大大真的是匠心，非常钦佩其十年如一日的深钻css世界，特别是他非常细致深入的不间断更新的博客。（个人不成熟的小感受是书中虽然有在按章节介绍内容，但是经常从a到b，导致读者主线丢失，感觉还是在一个个堆知识点，难以连成片。另外书中出现不少为了理解方便而取的名词，如“空白幽灵节点”，我还是希望书中的专业名词都跟标准里统一，不要自定义，否则出了这本书，我们可能就对不上了）。</p>
+<a id="more"></a>
 <p>非常认同，css玄在最终表现是多个属性共同作用的结果，这多个属性常上达几十个，所以单从某个属性角度很多时候无法理解其表现</p>
 <p>再说说本文会有点乱，夹杂各种知识点。不能从实用角度来看待，更多的是去理解原理，为啥会有这么多玄乎的表现。如果从实用角度，我们可能不会组合这些属性来诞生这些奇怪的表现，或者加些属性来消除影响。但是作为一个前端，我认为还是有必要理解为什么是这样的表现的。</p>
 <p>主要涉及点:</p>
@@ -787,24 +804,22 @@
 
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_pv"></span>
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
 </span>
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
 
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共10.5k字</span>
+</div>
         
 
 
@@ -847,8 +862,6 @@
   
 
 
-  
-
 
 
 
@@ -889,11 +902,6 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
 
   
 
@@ -906,13 +914,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
