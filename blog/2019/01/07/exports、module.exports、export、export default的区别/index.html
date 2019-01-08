@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="nodeJs   ES6," />
 
 
 
@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="博客访问地址 点击">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juan&#39;s Home">
-<meta property="og:url" content="https://juanhuang99.github.io/README.html">
+<meta name="description" content="exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。">
+<meta name="keywords" content="nodeJs   ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="exports、module.exports、export、export default的区别">
+<meta property="og:url" content="https://juanhuang99.github.io/blog/2019/01/07/exports、module.exports、export、export default的区别/index.html">
 <meta property="og:site_name" content="Juan&#39;s Home">
-<meta property="og:description" content="博客访问地址 点击">
+<meta property="og:description" content="exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T05:25:55.977Z">
+<meta property="og:image" content="https://juanhuang99.github.io/img/node-export.png">
+<meta property="og:updated_time" content="2019-01-08T02:39:12.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juan&#39;s Home">
-<meta name="twitter:description" content="博客访问地址 点击">
+<meta name="twitter:title" content="exports、module.exports、export、export default的区别">
+<meta name="twitter:description" content="exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。">
+<meta name="twitter:image" content="https://juanhuang99.github.io/img/node-export.png">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://juanhuang99.github.io/README.html"/>
+  <link rel="canonical" href="https://juanhuang99.github.io/blog/2019/01/07/exports、module.exports、export、export default的区别/"/>
 
 
 
 
 
-  <title> | Juan's Home</title>
+  <title>exports、module.exports、export、export default的区别 | Juan's Home</title>
   
 
 
@@ -237,34 +240,210 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://juanhuang99.github.io/blog/2019/01/07/exports、module.exports、export、export default的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吃葡萄不吐番茄皮">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/personal-avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Juan's Home">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>访问地址 <a href="https://juanhuang99.github.io/">点击</a></p>
-
+          <h1 class="post-title" itemprop="name headline">exports、module.exports、export、export default的区别</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-07T17:22:11+08:00">
+                2019-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。</p>
+<a id="more"></a>
+<h2 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h2><p>require: node 和 es6 都支持的引入<br>export / import : 只有es6 支持的导出引入<br>module.exports / exports: 只有 node 支持的导出</p>
+<h2 id="node中的模块导入导出"><a href="#node中的模块导入导出" class="headerlink" title="node中的模块导入导出"></a>node中的模块导入导出</h2><p><strong>exports 和 module.exports</strong><br>在一个node执行一个文件时，会给这个文件内生成一个 exports和module对象，<br>而module又有一个exports属性。他们之间的关系如下图，都指向一块{}内存区域。<br><img src="/img/node-export.png" alt=""><br>看个代码例子：</p>
+<pre><code>//utils.js
+let a = 100;
+console.log(module.exports); //能打印出结果为：{}
+console.log(exports); //能打印出结果为：{}
+
+exports.a = 200; //这里辛苦劳作帮 module.exports 的内容给改成 {a : 200}
+
+exports = &apos;指向其他内存区&apos;; //这里把exports的指向指走
+
+//test.js
+var a = require(&apos;/utils&apos;);
+console.log(a) // 打印为 {a : 200}  
+</code></pre><blockquote>
+<p>从上面可以看出，其实require导出的内容是module.exports的指向的内存块内容，并不是exports的。<br>他们之间的区别就是exports只辅助module.exports操作内存中的数据，最后真正被require出去的内容还是module.exports。简而言之就是exports 只是 module.exports的引用。</p>
+</blockquote>
+<h2 id="ES6中的模块导入导出"><a href="#ES6中的模块导入导出" class="headerlink" title="ES6中的模块导入导出"></a>ES6中的模块导入导出</h2><p><strong>export 和 export default</strong><br>它们之间的区别是：<br>1.export与export default均可用于导出常量、函数、文件、模块等<br>2.在一个文件或模块中，export、import可以有多个，export default仅有一个<br>3.通过export方式导出，在导入时要加{ }，export default则不需要<br>4.export能直接导出变量表达式，export default不行。</p>
+<p>看个代码例子：</p>
+<pre><code>//testEs6Export.js
+&apos;use strict&apos;
+//导出变量
+export const a = &apos;100&apos;;  
+
+//导出方法
+export const dogSay = function(){ 
+    console.log(&apos;wang wang&apos;);
+}
+
+//导出方法第二种
+function catSay(){
+console.log(&apos;miao miao&apos;); 
+}
+export { catSay };
+
+//export default导出
+const m = 100;
+export default m; 
+//export defult const m = 100;// 这里不能写这种格式。
+
+
+//index.js
+&apos;use strict&apos;
+var express = require(&apos;express&apos;);
+var router = express.Router();
+
+import { dogSay, catSay } from &apos;./testEs6Export&apos;; //导出了 export 方法 
+import m from &apos;./testEs6Export&apos;;  //导出了 export default 
+
+import * as testModule from &apos;./testEs6Export&apos;; //as 集合成对象导出
+
+
+
+/* GET home page. */
+router.get(&apos;/&apos;, function(req, res, next) {
+dogSay();
+catSay();
+console.log(m);
+testModule.dogSay();
+console.log(testModule.m); // undefined , 因为  as 导出是 把 零散的 export 聚集在一起作为一个对象，而export default 是导出为 default属性。
+console.log(testModule.default); // 100
+res.send(&apos;恭喜你，成功验证&apos;);
+});
+
+module.exports = router;
+</code></pre>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nodeJs-ES6/" rel="tag"># nodeJs   ES6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/06/27/css玄学之一二/" rel="next" title="css玄学之一二">
+                <i class="fa fa-chevron-left"></i> css玄学之一二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -372,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#博客"><span class="nav-number">1.</span> <span class="nav-text">博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用范围"><span class="nav-number">1.</span> <span class="nav-text">使用范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node中的模块导入导出"><span class="nav-number">2.</span> <span class="nav-text">node中的模块导入导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中的模块导入导出"><span class="nav-number">3.</span> <span class="nav-text">ES6中的模块导入导出</span></a></li></ol></div>
             
 
           </div>
