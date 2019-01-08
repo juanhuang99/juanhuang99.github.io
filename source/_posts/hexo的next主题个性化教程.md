@@ -1,7 +1,7 @@
 ---
 title: hexo的next主题个性化教程
 date: 2018-06-25 18:51:59
-tags:
+tags: hexo
 ---
 
 hexo的next主题个性化教程：[点击](https://www.jianshu.com/p/f054333ac9e6)

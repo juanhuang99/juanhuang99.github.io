@@ -1,7 +1,7 @@
 ---
 title: exports、module.exports、export、export default的区别
 date: 2019-01-07 17:22:11
-tags: nodeJs   ES6
+tags: [nodeJs, ES6]
 ---
 
 exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。
