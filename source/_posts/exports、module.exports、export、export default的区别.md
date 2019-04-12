@@ -19,7 +19,7 @@ module.exports / exports: 只有 node 支持的导出
 ![](/img/node-export.png)
 看个代码例子：
 
-{% codeblock %}
+```
     //utils.js
     let a = 100;
     console.log(module.exports); //能打印出结果为：{}
@@ -32,7 +32,7 @@ module.exports / exports: 只有 node 支持的导出
     //test.js
     var a = require('/utils');
     console.log(a) // 打印为 {a : 200} 
-{% endcodeblock %}
+```
 >从上面可以看出，其实require导出的内容是module.exports的指向的内存块内容，并不是exports的。
 他们之间的区别就是exports只辅助module.exports操作内存中的数据，最后真正被require出去的内容还是module.exports。简而言之就是exports 只是 module.exports的引用。
 
@@ -46,7 +46,7 @@ module.exports / exports: 只有 node 支持的导出
 
 看个代码例子：
 
-{% codeblock %}
+```
     //testEs6Export.js
     'use strict'
     //导出变量
@@ -67,9 +67,9 @@ module.exports / exports: 只有 node 支持的导出
     const m = 100;
     export default m; 
     //export defult const m = 100;// 这里不能写这种格式。
-{% endcodeblock %}
+```
 
-{% codeblock %}
+```
     //index.js
     'use strict'
     var express = require('express');
@@ -94,4 +94,4 @@ module.exports / exports: 只有 node 支持的导出
     });
 
     module.exports = router;
-{% endcodeblock %}
+```
