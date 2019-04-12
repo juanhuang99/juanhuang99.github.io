@@ -6,6 +6,7 @@ tags: hexo
 
 hexo的next主题个性化教程：[点击](https://www.jianshu.com/p/f054333ac9e6)
 
+<!-- more -->
 ## Quick Start
 
 ### Create a new post
