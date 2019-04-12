@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="nodeJs,ES6," />
+  <meta name="keywords" content="ES6,nodeJs," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。">
-<meta name="keywords" content="nodeJs,ES6">
+<meta name="keywords" content="ES6,nodeJs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="exports、module.exports、export、export default的区别">
 <meta property="og:url" content="https://juanhuang99.github.io/blog/2019/01/07/exports、module.exports、export、export default的区别/index.html">
@@ -95,7 +95,7 @@
 <meta property="og:description" content="exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://juanhuang99.github.io/img/node-export.png">
-<meta property="og:updated_time" content="2019-01-08T06:41:30.425Z">
+<meta property="og:updated_time" content="2019-04-12T06:10:55.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="exports、module.exports、export、export default的区别">
 <meta name="twitter:description" content="exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。">
@@ -323,7 +323,7 @@
 <a id="more"></a>
 <h2 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h2><p>require: node 和 es6 都支持的引入<br>export / import : 只有es6 支持的导出引入<br>module.exports / exports: 只有 node 支持的导出</p>
 <h2 id="node中的模块导入导出"><a href="#node中的模块导入导出" class="headerlink" title="node中的模块导入导出"></a>node中的模块导入导出</h2><p><strong>exports 和 module.exports</strong><br>在一个node执行一个文件时，会给这个文件内生成一个 exports和module对象，<br>而module又有一个exports属性。他们之间的关系如下图，都指向一块{}内存区域。<br><img src="/img/node-export.png" alt=""><br>看个代码例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//utils.js</span><br><span class="line">let a = 100;</span><br><span class="line">console.log(module.exports); //能打印出结果为：&#123;&#125;</span><br><span class="line">console.log(exports); //能打印出结果为：&#123;&#125;</span><br><span class="line"></span><br><span class="line">exports.a = 200; //这里辛苦劳作帮 module.exports 的内容给改成 &#123;a : 200&#125;</span><br><span class="line"></span><br><span class="line">exports = &apos;指向其他内存区&apos;; //这里把exports的指向指走</span><br><span class="line"></span><br><span class="line">//test.js</span><br><span class="line">var a = require(&apos;/utils&apos;);</span><br><span class="line">console.log(a) // 打印为 &#123;a : 200&#125; </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//utils.js</span><br><span class="line">let a = 100;</span><br><span class="line">console.log(module.exports); //能打印出结果为：&#123;&#125;</span><br><span class="line">console.log(exports); //能打印出结果为：&#123;&#125;</span><br><span class="line"></span><br><span class="line">exports.a = 200; //这里辛苦劳作帮 module.exports 的内容给改成 &#123;a : 200&#125;</span><br><span class="line"></span><br><span class="line">exports = &apos;指向其他内存区&apos;; //这里把exports的指向指走</span><br><span class="line"></span><br><span class="line">//test.js</span><br><span class="line">var a = require(&apos;/utils&apos;);</span><br><span class="line">console.log(a) // 打印为 &#123;a : 200&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>从上面可以看出，其实require导出的内容是module.exports的指向的内存块内容，并不是exports的。<br>他们之间的区别就是exports只辅助module.exports操作内存中的数据，最后真正被require出去的内容还是module.exports。简而言之就是exports 只是 module.exports的引用。</p>
 </blockquote>
@@ -347,9 +347,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/nodeJs/" rel="tag"><i class=”fa fa-tag”></i> nodeJs</a>
-          
             <a href="/tags/ES6/" rel="tag"><i class=”fa fa-tag”></i> ES6</a>
+          
+            <a href="/tags/nodeJs/" rel="tag"><i class=”fa fa-tag”></i> nodeJs</a>
           
         </div>
       
