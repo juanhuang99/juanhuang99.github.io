@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。 ToPrimitive(obj,preferredType)JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String） 在执行ToPrimitive(o">
+<meta name="description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 类型转换">
 <meta property="og:url" content="https://juanhuang99.github.io/blog/2019/09/06/JavaScript-类型转换/index.html">
 <meta property="og:site_name" content="Juan&#39;s Home">
-<meta property="og:description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。 ToPrimitive(obj,preferredType)JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String） 在执行ToPrimitive(o">
+<meta property="og:description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-15T13:11:38.299Z">
+<meta property="og:updated_time" content="2019-09-15T13:16:16.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 类型转换">
-<meta name="twitter:description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。 ToPrimitive(obj,preferredType)JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String） 在执行ToPrimitive(o">
+<meta name="twitter:description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。">
 
 
 
@@ -317,6 +317,7 @@
 
       
         <h2 id="什么是ToPrimitive抽象操作"><a href="#什么是ToPrimitive抽象操作" class="headerlink" title="什么是ToPrimitive抽象操作"></a>什么是ToPrimitive抽象操作</h2><p>该操作主要是将对象类型转换为基本类型。</p>
+<a id="more"></a>
 <h4 id="ToPrimitive-obj-preferredType"><a href="#ToPrimitive-obj-preferredType" class="headerlink" title="ToPrimitive(obj,preferredType)"></a>ToPrimitive(obj,preferredType)</h4><p>JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String）</p>
 <p>在执行ToPrimitive(obj,preferredType)时如果第二个参数为空并且obj为Date的事例时，此时preferredType会被设置为String，其他情况下preferredType都会被设置为Number如果preferredType为Number，ToPrimitive执行过程如下：</p>
 <ol>
