@@ -7,7 +7,7 @@ tags:
 该操作主要是将对象类型转换为基本类型。
 
 <!-- more -->
-#### ToPrimitive(obj,preferredType)
+### ToPrimitive(obj,preferredType)
 
 JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String）
 
@@ -27,7 +27,7 @@ JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个
 var a = new String('abc')，a被叫做封装了基本类型的封装对象，还原一个封装对象的值，可以调用valueOf方法。
 
 ## 显式强制类型转换
-#### 转换为字符串
+### 转换为字符串
 1.null转换为'null',undefined转换为'undefined',其他基本类型都调用基本类型的包装对象属性toString()并返回值。
 ```
 const a = 123;
@@ -52,7 +52,7 @@ console.log(String(b));//[object object]
 const a = [1, 2, 3];
 console.log(String(a));//'1,2,3'
 ```
-#### 转换为数字
+### 转换为数字
 1.true转换为1，false转换为0，undefined转换为NaN，null转换为0
 ```
 console.log(Number(null));//0
@@ -108,19 +108,19 @@ console.log(Number(obj3));//NaN
 const obj = Object.create(null);
 console.log(Number(obj));//TypeError
 ```
-#### 转换为布尔值
+### 转换为布尔值
 - 可以被转换为false的值（undefined，null，false， +0、-0和NaN，''）
 - 除条件1的其他都被转换为true（切记：封装对象均被转为true）
 
 ## 隐式强制类型转换
-#### 转换为字符串
+### 转换为字符串
 一元运算符加号（+）首先把非基本类型通过ToPrimitive抽象操作转换为基本类型，如果加号中的两项有一项是字符串，另一项则进行ToString操作。
 ```
 console.log([1, 2] + [1, 2]); //1,21,2
 //等同于
 console.log([1, 2].toString() + [1, 2].toString()); //1,21,2
 ```
-#### 转换为数字
+### 转换为数字
 通过一元运算符-、/、*转换，常见的转换方法：
 ```
 + '2'  // 2
@@ -137,7 +137,7 @@ console.log([1, 2].toString() + [1, 2].toString()); //1,21,2
 1 + '2'  // '12'
 1 + + '2'  // 3    即：1 + (+ '2')
 ```
-#### 转换为布尔值
+### 转换为布尔值
 - if(..)语句中的条件判断表达式
 - for(..;..;..)语句的第二个条件判断表达式
 - while(..)和do..while(..)的条件判断表达式
@@ -146,19 +146,19 @@ console.log([1, 2].toString() + [1, 2].toString()); //1,21,2
 
 ## == 比较
 记住以下 5 条规则，任何相等比较都不怕。
-#### 1、字符串和数字之间的相等比较
+### 1、字符串和数字之间的相等比较
 字符串先转换为数字，然后再比较。
 
-#### 2、其他类型和布尔类型之间的相等比较
+### 2、其他类型和布尔类型之间的相等比较
 布尔类型转换为数字，再进行比较。
 
-#### 3、对象和非对象之间的相等比较
+### 3、对象和非对象之间的相等比较
 对象转换成基本类型值，按转换为数字的流程转换后进行比较。对象转换优先级最高。
 
-#### 4、null 和 undefined
+### 4、null 和 undefined
 null == undefined， 其他类型和 null 均不相等，undefined 也是如此。
 
-#### 5、特殊情况
+### 5、特殊情况
 ```
 NaN == NaN  // false
 -0  == +0   // true
@@ -181,7 +181,7 @@ false == [] // true
 ```
 ## 抽象关系比较
 关系比较都会转换为 a < b 进行比较，a > b 会被转换成 b < a，a <= b 会被转换成 !(b<a)，a >= b 转换为 !(a<b)
-#### 比较规则
+### 比较规则
 1.如果双方是其他情况首先调用ToPrimitive转换为基本类型;
 2.若有一方不是字符串，则将其转换为数字再进行比较；
 3.若有一方是 NaN，结果总是 false。
