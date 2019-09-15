@@ -86,13 +86,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juan&#39;s Home">
-<meta property="og:url" content="https://juanhuang99.github.io/index.html">
+<meta name="description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。 ToPrimitive(obj,preferredType)JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String） 在执行ToPrimitive(o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 类型转换">
+<meta property="og:url" content="https://juanhuang99.github.io/blog/2019/09/06/JavaScript-类型转换/index.html">
 <meta property="og:site_name" content="Juan&#39;s Home">
+<meta property="og:description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。 ToPrimitive(obj,preferredType)JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String） 在执行ToPrimitive(o">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-15T13:11:38.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juan&#39;s Home">
+<meta name="twitter:title" content="JavaScript 类型转换">
+<meta name="twitter:description" content="什么是ToPrimitive抽象操作该操作主要是将对象类型转换为基本类型。 ToPrimitive(obj,preferredType)JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String） 在执行ToPrimitive(o">
 
 
 
@@ -122,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://juanhuang99.github.io/"/>
+  <link rel="canonical" href="https://juanhuang99.github.io/blog/2019/09/06/JavaScript-类型转换/"/>
 
 
 
 
 
-  <title>Juan's Home</title>
+  <title>JavaScript 类型转换 | Juan's Home</title>
   
 
 
@@ -147,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -231,9 +234,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -263,9 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2019/09/06/JavaScript-类型转换/" itemprop="url">JavaScript 类型转换</a></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript 类型转换</h1>
         
 
         <div class="post-meta">
@@ -315,9 +316,7 @@
       
 
       
-        
-          
-            <h2 id="什么是ToPrimitive抽象操作"><a href="#什么是ToPrimitive抽象操作" class="headerlink" title="什么是ToPrimitive抽象操作"></a>什么是ToPrimitive抽象操作</h2><p>该操作主要是将对象类型转换为基本类型。</p>
+        <h2 id="什么是ToPrimitive抽象操作"><a href="#什么是ToPrimitive抽象操作" class="headerlink" title="什么是ToPrimitive抽象操作"></a>什么是ToPrimitive抽象操作</h2><p>该操作主要是将对象类型转换为基本类型。</p>
 <h4 id="ToPrimitive-obj-preferredType"><a href="#ToPrimitive-obj-preferredType" class="headerlink" title="ToPrimitive(obj,preferredType)"></a>ToPrimitive(obj,preferredType)</h4><p>JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String）</p>
 <p>在执行ToPrimitive(obj,preferredType)时如果第二个参数为空并且obj为Date的事例时，此时preferredType会被设置为String，其他情况下preferredType都会被设置为Number如果preferredType为Number，ToPrimitive执行过程如下：</p>
 <ol>
@@ -366,8 +365,6 @@
 <h4 id="比较规则"><a href="#比较规则" class="headerlink" title="比较规则"></a>比较规则</h4><p>1.如果双方是其他情况首先调用ToPrimitive转换为基本类型;<br>2.若有一方不是字符串，则将其转换为数字再进行比较；<br>3.若有一方是 NaN，结果总是 false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">null &gt;= 0 // true</span><br><span class="line">null &lt;= 0 // true</span><br><span class="line">null == 0 // flase</span><br><span class="line">//按照第二条规则，需要将 null 转换为数字，结果为 0，因此 null &gt;= 0 和 null &lt;= 0 是成立的。但是在相等比较规则中（第 4 条），其他类型和 null 均不相等，因此 null == 0 是不成立的。</span><br><span class="line"></span><br><span class="line">var obj = &#123;&#125;</span><br><span class="line">obj &gt;= 0 // false</span><br><span class="line">obj &lt;= 0 // false</span><br><span class="line">obj == 0 // false</span><br><span class="line">//按照第 1 条规则，obj 转换结果为 &quot;[object Object]&quot;，接着按第 2 条规则，&quot;[object Object]&quot; 转换为数字，结果为 NaN，按照第 3 条，无论怎么比较结果都是 false。</span><br></pre></td></tr></table></figure></p>
 <p>参考：<br><a href="https://www.qinshenxue.com/article/javascript-type-conversion.html" target="_blank" rel="noopener">JavaScript 类型转换</a><br><a href="https://juejin.im/post/5d1587f4e51d4510664d1715" target="_blank" rel="noopener">深入理解 JavaScript 的类型转换</a><br>[从[]==![]为true来剖析JavaScript各种蛋疼的类型转换]<br>(<a href="https://segmentfault.com/a/1190000008432611" target="_blank" rel="noopener">https://segmentfault.com/a/1190000008432611</a>)</p>
 
-          
-        
       
     </div>
     
@@ -384,136 +381,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://juanhuang99.github.io/blog/2019/04/12/彻底弄懂promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吃葡萄不吐番茄皮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/personal-avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Juan's Home">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2019/04/12/彻底弄懂promise/" itemprop="url">彻底弄懂promise</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-12T14:03:25+08:00">
-                2019-04-12
-              </time>
+              <a href="/blog/2019/04/12/彻底弄懂promise/" rel="next" title="彻底弄懂promise">
+                <i class="fa fa-chevron-left"></i> 彻底弄懂promise
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="什么是promise"><a href="#什么是promise" class="headerlink" title="什么是promise"></a>什么是promise</h2><p>promise是es6的一个重要特性，用于实现异步。promise对象拥有一个叫做状态的属性，该属性不受外界影响，修改后不能再次变化。而Promise是一个构造函数，可以生成promise对象。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2019/04/12/彻底弄懂promise/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -523,258 +412,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://juanhuang99.github.io/blog/2019/01/07/exports、module.exports、export、export default的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吃葡萄不吐番茄皮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/personal-avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Juan's Home">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2019/01/07/exports、module.exports、export、export default的区别/" itemprop="url">exports、module.exports、export、export default的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-07T17:22:11+08:00">
-                2019-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>exports、module.exports、export、export default都是模块导出，它们之间又有什么区别，为了不继续混乱下去，是时候把它们的关系捋捋清楚了。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2019/01/07/exports、module.exports、export、export default的区别/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://juanhuang99.github.io/blog/2018/06/25/hexo的next主题个性化教程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吃葡萄不吐番茄皮">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/personal-avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Juan's Home">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/06/25/hexo的next主题个性化教程/" itemprop="url">hexo的next主题个性化教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T18:51:59+08:00">
-                2018-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>hexo的next主题个性化教程：<a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">点击</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2018/06/25/hexo的next主题个性化教程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -782,6 +424,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -802,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -858,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是ToPrimitive抽象操作"><span class="nav-number">1.</span> <span class="nav-text">什么是ToPrimitive抽象操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ToPrimitive-obj-preferredType"><span class="nav-number">1.0.1.</span> <span class="nav-text">ToPrimitive(obj,preferredType)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是封装对象"><span class="nav-number">2.</span> <span class="nav-text">什么是封装对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显式强制类型转换"><span class="nav-number">3.</span> <span class="nav-text">显式强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为字符串"><span class="nav-number">3.0.1.</span> <span class="nav-text">转换为字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为数字"><span class="nav-number">3.0.2.</span> <span class="nav-text">转换为数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为布尔值"><span class="nav-number">3.0.3.</span> <span class="nav-text">转换为布尔值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式强制类型转换"><span class="nav-number">4.</span> <span class="nav-text">隐式强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为字符串-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">转换为字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为数字-1"><span class="nav-number">4.0.2.</span> <span class="nav-text">转换为数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为布尔值-1"><span class="nav-number">4.0.3.</span> <span class="nav-text">转换为布尔值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较"><span class="nav-number">5.</span> <span class="nav-text">== 比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、字符串和数字之间的相等比较"><span class="nav-number">5.0.1.</span> <span class="nav-text">1、字符串和数字之间的相等比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、其他类型和布尔类型之间的相等比较"><span class="nav-number">5.0.2.</span> <span class="nav-text">2、其他类型和布尔类型之间的相等比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、对象和非对象之间的相等比较"><span class="nav-number">5.0.3.</span> <span class="nav-text">3、对象和非对象之间的相等比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、null-和-undefined"><span class="nav-number">5.0.4.</span> <span class="nav-text">4、null 和 undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、特殊情况"><span class="nav-number">5.0.5.</span> <span class="nav-text">5、特殊情况</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象关系比较"><span class="nav-number">6.</span> <span class="nav-text">抽象关系比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#比较规则"><span class="nav-number">6.0.1.</span> <span class="nav-text">比较规则</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -985,6 +656,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
