@@ -5,6 +5,8 @@ tags:
 ---
 ## 什么是ToPrimitive抽象操作
 该操作主要是将对象类型转换为基本类型。
+
+<!-- more -->
 #### ToPrimitive(obj,preferredType)
 
 JS引擎内部转换为原始值ToPrimitive(obj,preferredType)函数接受两个参数，第一个obj为被转换的对象，第二个preferredType为希望转换成的类型（默认为空，接受的值为Number或String）
