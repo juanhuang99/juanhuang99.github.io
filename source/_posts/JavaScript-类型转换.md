@@ -202,5 +202,4 @@ obj == 0 // false
 参考： 
 [JavaScript 类型转换](https://www.qinshenxue.com/article/javascript-type-conversion.html)
 [深入理解 JavaScript 的类型转换](https://juejin.im/post/5d1587f4e51d4510664d1715)
-[从[]==![]为true来剖析JavaScript各种蛋疼的类型转换]
-(https://segmentfault.com/a/1190000008432611)
+[JavaScript各种蛋疼的类型转换](https://segmentfault.com/a/1190000008432611)
